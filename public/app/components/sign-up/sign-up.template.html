@@ -1,4 +1,4 @@
-<div layout-align="center center" layout="column"  style="min-height: 700px">
+<div layout-align="center center" layout="column"   style="min-height: 850px">
     <div class="loginBox md-whiteframe-z1 md-primary"   layout="column">
         <md-toolbar color="primary" layout-align="center center">
             <span>Sign Up</span>
@@ -7,12 +7,31 @@
         <form name="projectForm ">
             <md-content layout-padding>
                 <md-input-container class="md-block">
+                    <label>Your Name</label>
+                    <input  type="text" name="userName" ng-model="project.userName" required/>
+                    <div ng-messages="projectForm.userUserName.$error" role="alert">
+                        <div ng-message-exp="['required']">
+                            Please enter  your name.
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
                     <label>Email</label>
-                    <input required type="email" name="userEmail" ng-model="project.userEmail"
+                    <input required type="email" name="userEmail" ng-model="project.email"
                            ng-pattern="/^.+@.+\..+$/" />
                     <div ng-messages="projectForm.userEmail.$error" role="alert">
-                        <div ng-message-exp="['required', 'pattern']">
+                        <div ng-message="['required', 'pattern']">
                             Please enter  a valid email address.
+                        </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Username</label>
+                    <input required type="text" name="userUserName" ng-model="project.userUserName"
+                           ng-minlength="6" />
+                    <div ng-messages="projectForm.userUserName.$error">
+                        <div ng-message="['required', 'minlength']">
+                            Please enter a valid username with at least 6 characters .
                         </div>
                     </div>
                 </md-input-container>
@@ -32,13 +51,20 @@
                         <div ng-message="required">Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
                     </div>
                 </md-input-container>
-                <md-toolbar>
-                    <md-button  class="md-raised">Sign Up
+                    <md-input-container class="md-block">
+                        <label>Phone Number</label>
+                        <input type="tel" name="userPhoneNumber" ng-model="project.userPhoneNumber"/>
+                    </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-button  class="md-raised md-primary buttons" ng-model="project.signUp">Sign Up
                     </md-button>
-                    <span flex></span>
-                    <md-button class="md-raised">Go to Login
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <md-button class="md-raised md-primary buttons"  ng-project="project.login">Go to Login
                     </md-button>
-                </md-toolbar>
+                </md-input-container>
+
         </form>
     </div>
     </md-primary>
@@ -47,5 +73,8 @@
     .loginBox {
         max-width: 90%;
         width: 500px;
+    }
+    .buttons{
+        width: 95%;
     }
 </style>

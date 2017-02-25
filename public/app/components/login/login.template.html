@@ -4,15 +4,14 @@
         <span>Login</span>
     </md-toolbar>
 
-    <form name="projectForm ">
-        <md-content layout-padding>
+    <form name="projectForm " >
+        <md-content layout-padding >
             <md-input-container class="md-block">
-                <label>Email</label>
-                <input required type="email" name="userEmail" ng-model="project.userEmail"
-                       ng-pattern="/^.+@.+\..+$/" />
+                <label>Email or Username</label>
+                <input required type="text" name="userEmail" ng-model="project.userEmail"/>
                 <div ng-messages="projectForm.userEmail.$error" role="alert">
-                    <div ng-message-exp="['required', 'pattern']">
-                        Please enter  a valid email address.
+                    <div ng-message-exp="['required']">
+                        Please enter  a valid email or username.
                     </div>
                 </div>
             </md-input-container>
@@ -24,24 +23,34 @@
             <div ng-message="required">Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
         </div>
     </md-input-container>
+            <md-input-container class="md-block">
+            <md-button  class="md-raised md-primary buttons">Login
+            </md-button>
 
-            <md-toolbar>
-            <md-button  class="md-raised">Login
+            </md-input-container>
+            <md-input-container class="md-block">
+            <md-button class="md-raised md-primary buttons"">Forgot Password
             </md-button>
-            <span flex></span>
-            <md-button class="md-raised">Forgot Password
-            </md-button>
-                <span flex></span>
-                <md-button class="md-raised">Sign Up
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button class="md-raised md-primary buttons">Sign Up
                 </md-button>
-            </md-toolbar>
+            </md-input-container>
+        </md-content>
 </form>
     </div>
-  </md-primary>
-</div>
+  </div>
 <style>
     .loginBox {
         max-width: 90%;
         width: 500px;
+
     }
+    .buttons{
+        max-width: 95%;
+        width: 95%;
+
+    }
+
 </style>
