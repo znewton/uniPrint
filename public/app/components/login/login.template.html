@@ -1,47 +1,58 @@
-<div layout-align="center center" layout="column"  style="min-height: 700px">
+<div ng-app="login" layout-align="center center" layout="column"  style="min-height: 700px">
     <div class="loginBox md-whiteframe-z1 md-primary"   layout="column">
     <md-toolbar color="primary" layout-align="center center">
         <span>Login</span>
     </md-toolbar>
 
-    <form name="projectForm ">
-        <md-content layout-padding>
+    <form name="projectForm2" >
+        <md-content layout-padding >
             <md-input-container class="md-block">
-                <label>Email</label>
-                <input required type="email" name="userEmail" ng-model="project.userEmail"
-                       ng-pattern="/^.+@.+\..+$/" />
-                <div ng-messages="projectForm.userEmail.$error" role="alert">
-                    <div ng-message-exp="['required', 'pattern']">
-                        Please enter  a valid email address.
+                <label>Email or Username</label>
+                <input required type="text" name="userEmail" ng-model="project.userEmail"/>
+                <div ng-messages="projectForm2.userEmail.$error" role="alert" multiple="">
+
+                    <div ng-if="projectForm2.userEmail.$dirty">
+
                     </div>
                 </div>
             </md-input-container>
     <md-input-container class="md-block">
         <label>Password</label>
-        <input required type="password" ng-model="project.userPassword"
+        <input required type="password" name="loginPassword" ng-model="project.loginPassword"
                ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
-        <div ng-messages="projectForm.userPassword.$error">
-            <div ng-message="required">Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
+        <div ng-messages="projectForm2.loginPassword.$error">
+            <div ng-if="projectForm2.loginPassword.$error.required"></div>
+            <div ng-if="projectForm2.loginPassword.$error.pattern" >Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
         </div>
     </md-input-container>
+            <md-input-container class="md-block">
+            <md-button  class="md-raised md-primary buttons">Login
+            </md-button>
 
-            <md-toolbar>
-            <md-button  class="md-raised">Login
+            </md-input-container>
+            <md-input-container class="md-block">
+            <md-button class="md-raised md-primary buttons" ng-href="/#!/forgotPassword">Forgot Password?
             </md-button>
-            <span flex></span>
-            <md-button class="md-raised">Forgot Password
-            </md-button>
-                <span flex></span>
-                <md-button class="md-raised">Sign Up
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button class="md-raised md-primary buttons" ng-href="/#!/signUp">Sign Up
                 </md-button>
-            </md-toolbar>
+            </md-input-container>
+        </md-content>
 </form>
     </div>
-  </md-primary>
-</div>
+  </div>
 <style>
     .loginBox {
         max-width: 90%;
         width: 500px;
+
     }
+    .buttons{
+        max-width: 95%;
+        width: 95%;
+
+    }
+
 </style>
