@@ -32,13 +32,20 @@
 
     <script src="app/app.module.js"></script>
     <script src="app/app.config.js"></script>
+    <script src="app/components/app-navbar/app-navbar.module.js"></script>
+    <script src="app/components/app-footer/app-footer.module.js"></script>
     <script src="app/components/home/home.module.js"></script>
     <script src="app/services/auth/auth.module.js"></script>
+    <script src="app/components/login/login.module.js"></script>
+    <script src="app/components/sign-up/sign-up.module.js"></script>
+    <link rel="stylesheet" href="styles/material-icons.css">
   </head>
   <body ng-app="uniPrint">
-
-  <main ng-view></main>
-
+  <app-navbar></app-navbar>
+  <main ng-style="{minHeight: '97vh'}">
+    <md-content ng-view></md-content>
+  </main>
+  <app-footer></app-footer>
 
   </body>
 </html>

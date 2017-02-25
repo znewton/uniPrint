@@ -1,0 +1,20 @@
+<footer layout="row" layout-xs="column" class="md-padding" md-colors="::{backgroundColor: 'default-primary-100'}">
+	<div flex>
+		<a href="#!/">
+			<md-icon md-svg-icon="assets/uniPrintLogo.svg" ng-style="{width: '144px', height: '144px'}"></md-icon>
+		</a>
+	</div>
+	<div flex>
+		<div ng-repeat="c in contributers">
+			{{c.name}}
+			<a href="mailto:{{c.email}}" ng-style="{textDecoration: 'none', fontSize: '2em'}">
+				<md-icon class="md-icon-button">email</md-icon>
+			</a>
+			<a href="http://github.com/{{c.github}}">
+				<md-icon md-svg-icon="assets/GitHub-Mark-02.svg"></md-icon>
+			</a>
+		</div>
+	</div>
+	<div flex></div>
+	<div flex></div>
+</footer>

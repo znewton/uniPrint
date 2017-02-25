@@ -4,5 +4,9 @@ var app = angular.module('uniPrint', [
 	'ngAnimate',
 	//components
 	'home',
-	'auth'
+	'auth',
+    'login',
+	'signUp',
+	'appNavbar',
+	'appFooter'
 ]);
