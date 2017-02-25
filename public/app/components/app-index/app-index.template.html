@@ -1,0 +1,16 @@
+
+<section id="item-cards" >
+	<item-card item-info="itemCard" ng-repeat="itemCard in cardItems track by $index"></item-card>
+</section>
+
+<md-progress-circular ng-disabled="!loading" md-diameter="96" class="md-accent"></md-progress-circular>
+
+<style>
+	md-progress-circular {
+		margin: 5em auto;
+	}
+	#item-cards {
+		width: 95%;
+		margin: 0 auto;
+	}
+</style>

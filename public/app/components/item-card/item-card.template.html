@@ -1,0 +1,26 @@
+<md-card flex-auto>
+	<md-card-title>
+		<md-card-title-text>
+			<span class="md-headline">{{$ctrl.itemInfo.name}}</span>
+			<div class="md-subhead">
+				<div>Dimensions: {{$ctrl.itemInfo.dimensionX}} &times; {{$ctrl.itemInfo.dimensionY}} in</div>
+				<div>Colors: <span ng-style="{display: 'inline-block', width: '1em', height: '1em', backgroundColor: itemColor, marginRight: '1em'}" ng-repeat="itemColor in $ctrl.itemInfo.colors"></span></div>
+			</div>
+		</md-card-title-text>
+		<md-card-title-media>
+			<div class="md-media-md card-media">
+				<img ng-src="{{$ctrl.itemInfo.thumbnailURL}}">
+			</div>
+		</md-card-title-media>
+	</md-card-title>
+	<md-card-actions layout="row" layout-align="end center">
+		<a ng-href="#/{{$ctrl.itemInfo.fileURL}}" class="md-button" ng-style="{marginRight: '1em'}">
+			<md-icon>file_download</md-icon>
+			<span hide-xs>Download</span> ({{$ctrl.itemInfo.fileSize}})
+		</a>
+		<md-button class="md-raised md-primary">
+			<md-icon>send</md-icon>
+			<span hide-xs>Make</span> Offer
+		</md-button>
+	</md-card-actions>
+</md-card>
