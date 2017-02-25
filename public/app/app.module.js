@@ -5,6 +5,7 @@ var app = angular.module('uniPrint', [
 	//components
 	'home',
 	'auth',
+	'data',
     'login',
 	'signUp',
 	'appNavbar',

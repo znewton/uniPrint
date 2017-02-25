@@ -1,72 +1,64 @@
 angular.module('auth', []).service('auth',
     [
     function () {
-        var currentUser = null;
-
-        firebase.auth().onAuthStateChanged(function (user) {
+        var currentUser;
+        var userAttribs = {
+            name: null,
+            address: null,
+            phone: null
+        };
+        function init(user) {
             if(user){
                 currentUser = user;
+                firebase.database().ref('user/' + user.uid).once('value', function (snapshot) {
+                    if (snapshot.val() === null){
+                        firebase.database().ref('users/' + user.uid).set({
+                            name: userAttribs.name || null,
+                            email: user.email,
+                            address: userAttribs.address || null,
+                            phone: userAttribs.phone || null,
+                            print_rating: 0,
+                            buy_rating: 0,
+                            models: {},
+                            print_requests: {},
+                            bids: {}
+                        });
+                        userAttribs = {
+                            name: null,
+                            address: null,
+                            phone: null
+                        };
+                    }
+                });
             }
             else{
                 currentUser = null;
             }
-        });
+        }
 
-        var onChange = function (callback) {
-            firebase.auth().onAuthStateChanged(callback);
-        };
+
+        if (firebase.auth().currentUser !== null){
+            init(firebase.auth().currentUser);
+        }
+
+        firebase.auth().onAuthStateChanged(init);
 
         var isLoggedIn = function() {
-            return firebase.auth().currentUser != null;
+            return currentUser !== null;
         };
 
 
-        registerDefault = function(email, password) {
-            return firebase.auth().createUserWithEmailAndPassword(email,password);
-        };
-
-        registerGoogle = function () {
-            var provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithPopup(provider).then(function(result) {
-                console.log("TEST");
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                var token = result.credential.accessToken;
-                // The signed-in user info.
-                var user = result.user;
-                // ...
-            }).catch(function(error) {
-                console.log("TEST1");
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // The email of the user's account used.
-                var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                var credential = error.credential;
-                // ...
-            });
+        registerDefault = function(email, password, name, address, phone) {
+            userAttribs.name = name;
+            userAttribs.address = address;
+            userAttribs.phone = phone;
+            firebase.auth().createUserWithEmailAndPassword(email,password);
         };
 
         loginDefault = function(email, password) {
             return firebase.auth().signInWithEmailAndPassword(email, password);
         };
 
-        loginGoogle = function () {
-            var provider = new firebase.auth().GoogleAuthProvider();
-            firebase.auth().signInWithPopup(provider)
-                .then(function(result) {
-                })
-                .catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // The email of the user's account used.
-                var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
-                var credential = error.credential;
-                // ...
-            });
-        };
 
         logout = function(callback) {
             if (currentUser){
@@ -82,14 +74,12 @@ angular.module('auth', []).service('auth',
         };
 
         return {
-            onChange:           onChange,
             currentUser :       currentUser,
             isLoggedIn :        isLoggedIn,
             registerDefault :   registerDefault,
-            // registerGoogle:     registerGoogle,
             loginDefault :      loginDefault,
-            // loginGoogle:        loginGoogle,
-            logout :            logout
+            logout :            logout,
+            deleteAcc:          deleteAcc
         };
     }]
 );
