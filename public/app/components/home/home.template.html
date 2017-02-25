@@ -1,6 +1,6 @@
 <section class="md-padding">
 	<img class="hero-img" src="assets/hero-medium.jpg">
-	<div class="hero-text">
+	<div class="hero-text md-display-3">
 		<span ng-style="{color: '#aaaaaa'}">Make: </span>
 		<div id="hero-text-rotate">
 			<ul>
@@ -19,7 +19,14 @@
 	</div>
 </section>
 <section class="md-padding">
-
+	<h1 class="md-display-3">Goal </h1>
+	<p>Make 3D Printing more accessible</p>
+	<h1 class="md-display-3">Method </h1>
+	<p>Localize and Personalize Transactions between Consumer and Manufacturer</p>
+	<h1 class="md-display-3">Solution </h1>
+	<p>A Web App that allows an owner of a 3D printer to use their printer's downtime for a bit of profit while forcing price competition between local producers</p>
+	<h1 class="md-display-3">Future </h1>
+	<p>Convert to a Progressive Web App with push notifications as well as native transaction handling rather than in person cash transactions.</p>
 </section>
 
 <style>
@@ -29,6 +36,11 @@
 		position: relative;
 		height: 97vh;
 		overflow: hidden;
+		text-align: center;
+	}
+	section p {
+		font-size: 2em;
+		color: #555;
 	}
 	.hero-img {
 		width: 110vw;
@@ -40,7 +52,7 @@
 	.hero-text {
 		margin-top: 20%;
 		text-align: center;
-		font-size: 4em;
+		font-size: 5em;
 		text-transform: uppercase;
 		display: block;
 		position: relative;
@@ -120,9 +132,9 @@
 		}
 	}
 
-	@media (max-width: 670px) {
+	@media (max-width: 836px) {
 		.hero-text {
-			font-size: 4em;
+			font-size: 5em;
 		}
 		#hero-text-rotate ul{
 			text-align: center;
@@ -134,7 +146,7 @@
 	}
 	@media (max-width: 512px) {
 		.hero-text {
-			font-size: 3.5em;
+			font-size: 3em;
 		}
 	}
 </style>
