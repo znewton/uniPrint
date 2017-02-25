@@ -14,10 +14,10 @@
 		</md-card-title-media>
 	</md-card-title>
 	<md-card-actions layout="row" layout-align="end center">
-		<a ng-href="#/{{model.fileURL}}" class="md-button" ng-style="{marginRight: '1em'}">
+		<md-button class="md-button" ng-style="{marginRight: '1em'}" ng-click="openModelView()">
 			<md-icon>visibility</md-icon>
 			<span hide-xs>View</span> Model
-		</a>
+		</md-button>
 		<md-button class="md-raised md-primary">
 			<md-icon>send</md-icon>
 			<span hide-xs>Make</span> Offer
