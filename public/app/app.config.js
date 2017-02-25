@@ -1,7 +1,7 @@
 app.config(function($routeProvider) {
 	$routeProvider
 		.when("/", {
-			templateUrl : "<home></home>"
+			template: "<home></home>"
 		})
 		.otherwise({redirectTo:'/404'});
 });
