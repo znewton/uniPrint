@@ -3,5 +3,6 @@ var app = angular.module('uniPrint', [
 	'ngRoute',
 	'ngAnimate',
 	//components
-	'home'
+	'home',
+	'auth'
 ]);
