@@ -1,0 +1,12 @@
+<div layout-align="center center">
+	   <md-input-container class="md-block">
+                  <label>Email Address</label>
+                  <input required type="email" name="userEmail" 
+                    ng-pattern="/^.+@.+\..+$/" />
+                  <div ng-messages="projectForm.userEmail.$error" role="alert">
+                     <div ng-message-exp="['required', 'pattern']">
+                        Please enter a valid email address.
+                     </div>
+                  </div>
+               </md-input-container>
+</div>
