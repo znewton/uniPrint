@@ -1,28 +1,23 @@
-<div layout-align="center center" layout="column"   style="min-height: 850px">
+<div ng-app="signUp" layout-align="center center" layout="column"   style="min-height: 850px">
     <div class="loginBox md-whiteframe-z1 md-primary"   layout="column">
         <md-toolbar color="primary" layout-align="center center">
             <span>Sign Up</span>
         </md-toolbar>
 
-        <form name="projectForm ">
+        <form name="projectForm">
             <md-content layout-padding>
                 <md-input-container class="md-block">
                     <label>Your Name</label>
                     <input  type="text" name="userName" ng-model="project.userName" required/>
-                    <div ng-messages="projectForm.userUserName.$error" role="alert">
-                        <div ng-message-exp="['required']">
-                            Please enter  your name.
-                        </div>
-                    </div>
+
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>Email</label>
-                    <input required type="email" name="userEmail" ng-model="project.email"
+                    <input required type="email" name="userEmail" ng-model="project.userEmail"
                            ng-pattern="/^.+@.+\..+$/" />
-                    <div ng-messages="projectForm.userEmail.$error" role="alert">
-                        <div ng-message="['required', 'pattern']">
-                            Please enter  a valid email address.
-                        </div>
+                    <div ng-messages="projectForm.userEmail.$error">
+                        <div ng-if="projectForm.userEmail.$error.required"> </div>
+                        <div ng-if="projectForm.userEmail.$error.pattern" >Please enter a valid email address.</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
@@ -30,25 +25,26 @@
                     <input required type="text" name="userUserName" ng-model="project.userUserName"
                            ng-minlength="6" />
                     <div ng-messages="projectForm.userUserName.$error">
-                        <div ng-message="['required', 'minlength']">
-                            Please enter a valid username with at least 6 characters .
-                        </div>
+                        <div ng-if="projectForm.userUserName.$error.required"> </div>
+                        <div ng-if="projectForm.userUserName.$error.minlength" >Username must have 6 characters.</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>Password</label>
-                    <input required type="password" ng-model="project.userPassword"
+                    <input required type="password" name="userPassword" ng-model="project.userPassword"
                            ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
                     <div ng-messages="projectForm.userPassword.$error">
-                        <div ng-message="required">Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
+                        <div ng-if="projectForm.userPassword.$error.required"></div>
+                        <div ng-if="projectForm.userPassword.$error.pattern" >Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
                     <label>Password</label>
-                    <input required type="password" ng-model="project.userPassword2"
+                    <input required type="password" name="userPassword2" ng-model="project.userPassword2"
                            ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
                     <div ng-messages="projectForm.userPassword2.$error">
-                        <div ng-message="required">Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
+                    <div ng-if="projectForm.userPassword2.$error.required"></div>
+                    <div ng-if="projectForm.userPassword2.$error.pattern" >Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
                     </div>
                 </md-input-container>
                     <md-input-container class="md-block">
@@ -61,7 +57,7 @@
                     </md-button>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <md-button class="md-raised md-primary buttons"  ng-project="project.login">Go to Login
+                    <md-button class="md-raised md-primary buttons"  ng-project="project.login" ng-href="/#!/login">Go to Login
                     </md-button>
                 </md-input-container>
 
