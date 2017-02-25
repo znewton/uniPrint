@@ -3,6 +3,9 @@ app.config(function($routeProvider, $mdThemingProvider) {
 		.when("/", {
 			template: "<home></home>"
 		})
+		.when("/index", {
+			template: "<index></index>"
+		})
         .when("/login", {
             template: "<login></login>"
         })
