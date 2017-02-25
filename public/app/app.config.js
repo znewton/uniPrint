@@ -3,8 +3,11 @@ app.config(function($routeProvider, $mdThemingProvider) {
 		.when("/", {
 			template: "<home></home>"
 		})
-		.when("/index", {
-			template: "<app-index></app-index>"
+		.when("/models", {
+			template: "<model-index></model-index>"
+		})
+		.when("/requests", {
+			template: "<request-index></request-index>"
 		})
         .when("/login", {
             template: "<login></login>"

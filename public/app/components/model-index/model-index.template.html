@@ -1,7 +1,7 @@
 
-<section id="item-cards" >
-	<item-card item-info="itemCard" ng-repeat="itemCard in cardItems track by $index"></item-card>
-</section>
+<div layout="row" layout-wrap id="item-cards">
+	<model-card model-info="value" ng-repeat="(key,value) in models track by $index" ></model-card>
+</div>
 
 <md-progress-circular ng-disabled="!loading" md-diameter="96" class="md-accent"></md-progress-circular>
 
@@ -12,5 +12,10 @@
 	#item-cards {
 		width: 95%;
 		margin: 0 auto;
+	}
+	@media (max-width: 700px) {
+		model-card {
+			min-width: 100%;
+		}
 	}
 </style>
