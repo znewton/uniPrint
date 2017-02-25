@@ -1,4 +1,5 @@
 .idea
 firebase-debug.log
 .firebaserc
+public/bower_components
 
