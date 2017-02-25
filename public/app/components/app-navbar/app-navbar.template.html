@@ -1,19 +1,30 @@
 <nav>
-	<md-toolbar class="md-hue-2">
+	<md-toolbar class="grey">
 		<div class="md-toolbar-tools">
-			<md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">
-				<i class="material-icons">menu</i>
-			</md-button>
+			<a href="#!/">
+				<md-icon md-svg-icon="assets/uniPrintLogo.svg" class="md-raised" ng-style="{marginRight: '1em', height: '48px', width: '48px'}"></md-icon>
+			</a>
 
-			<h2 flex md-truncate>Toolbar with Disabled/Enabled Icon Buttons</h2>
-
-			<md-button class="md-icon-button" aria-label="Favorite">
-				<i class="material-icons" style="color: greenyellow;">favorite</i>
-			</md-button>
-
-			<md-button class="md-icon-button" aria-label="More">
-				<i class="material-icons">more_vert</i>
-			</md-button>
+			<h2 md-truncate hide-xs ng-style="{fontSize: '1.5em'}">uniPrint</h2>
+			<span flex></span>
+			<a href="#!/user/profile">
+				<md-icon ng-style="{marginRight: '0.5em'}">account_circle</md-icon>
+				<span hide-xs>{{user.fullName}}</span>
+			</a>
+			<md-menu md-offset="0 7" md-position-mode="target-right target">
+				<md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdMenu.open($event)">
+					<md-icon md-menu-origin >more_vert</md-icon>
+				</md-button>
+				<md-menu-content width="3">
+					<md-menu-item>
+						<a class="md-button" href="#!/user/settings"> <md-icon>settings</md-icon> <span md-menu-align-target>Settings</span></a>
+					</md-menu-item>
+					<md-menu-divider></md-menu-divider>
+					<md-menu-item>
+						<a class="md-button" href="#!/logout"> <md-icon>power_settings_new</md-icon> <span md-menu-align-target>Logout</span></a>
+					</md-menu-item>
+				</md-menu-content>
+			</md-menu>
 		</div>
 	</md-toolbar>
 </nav>
