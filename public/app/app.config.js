@@ -3,6 +3,12 @@ app.config(function($routeProvider, $mdThemingProvider) {
 		.when("/", {
 			template: "<home></home>"
 		})
+        .when("/login", {
+            template: "<login></login>"
+        })
+        .when("/signUp", {
+            template: "<sign-up></sign-up>"
+        })
 		.otherwise({redirectTo:'/404'});
 
 	$mdThemingProvider.theme('default')

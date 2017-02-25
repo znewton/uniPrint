@@ -1,0 +1,47 @@
+<div layout-align="center center" layout="column"  style="min-height: 700px">
+    <div class="loginBox md-whiteframe-z1 md-primary"   layout="column">
+    <md-toolbar color="primary" layout-align="center center">
+        <span>Login</span>
+    </md-toolbar>
+
+    <form name="projectForm ">
+        <md-content layout-padding>
+            <md-input-container class="md-block">
+                <label>Email</label>
+                <input required type="email" name="userEmail" ng-model="project.userEmail"
+                       ng-pattern="/^.+@.+\..+$/" />
+                <div ng-messages="projectForm.userEmail.$error" role="alert">
+                    <div ng-message-exp="['required', 'pattern']">
+                        Please enter  a valid email address.
+                    </div>
+                </div>
+            </md-input-container>
+    <md-input-container class="md-block">
+        <label>Password</label>
+        <input required type="password" ng-model="project.userPassword"
+               ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
+        <div ng-messages="projectForm.userPassword.$error">
+            <div ng-message="required">Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
+        </div>
+    </md-input-container>
+
+            <md-toolbar>
+            <md-button  class="md-raised">Login
+            </md-button>
+            <span flex></span>
+            <md-button class="md-raised">Forgot Password
+            </md-button>
+                <span flex></span>
+                <md-button class="md-raised">Sign Up
+                </md-button>
+            </md-toolbar>
+</form>
+    </div>
+  </md-primary>
+</div>
+<style>
+    .loginBox {
+        max-width: 90%;
+        width: 500px;
+    }
+</style>
