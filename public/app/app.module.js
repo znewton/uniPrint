@@ -6,5 +6,5 @@ var app = angular.module('uniPrint', [
 	'home',
     'appNavbar',
     'login',
-	'sign_up'
+	'signUp'
 ]);

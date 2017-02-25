@@ -6,8 +6,8 @@ app.config(function($routeProvider) {
         .when("/login", {
             template: "<login></login>"
         })
-        .when("/sign_up", {
-            template: "<sign_up></sign_up>"
+        .when("/signUp", {
+            template: "<sign-up></sign-up>"
         })
 		.otherwise({redirectTo:'/404'});
 });
