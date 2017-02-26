@@ -4,7 +4,7 @@ angular.module('modelCard', ['requestForm']).component('modelCard',{
 		modelInfo: '='
 	},
 
-	controller: function ModelCardController($scope) {
+	controller: function ModelCardController($scope, $mdDialog) {
 		$scope.showRequestForm = function(ev) {
 			$mdDialog.show({
 				controller: DialogController,

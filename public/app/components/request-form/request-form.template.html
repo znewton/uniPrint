@@ -1,0 +1,81 @@
+<form layout="column" ng-cloak class="md-inline-form">
+		<!--<md-toolbar>-->
+			<!--<div class="md-toolbar-tools">-->
+				<!--<h2>Mango (Fruit)</h2>-->
+				<!--<span flex></span>-->
+				<!--<md-button class="md-icon-button" ng-click="cancel()">-->
+					<!--<md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>-->
+				<!--</md-button>-->
+			<!--</div>-->
+		<!--</md-toolbar>-->
+
+		<md-content layout-padding>
+
+			<div layout-gt-sm="row">
+			<md-input-container flex>
+				<label>Dimension X</label>
+				<input ng-model="request.dimX" type="number" required>
+			</md-input-container>
+			</div>
+			<div layout-gt-sm="row">
+			<md-input-container flex>
+				<label>Dimensions Y</label>
+				<input ng-model="request.dimY" type="number" required>
+			</md-input-container>
+			</div>
+			<div layout-gt-sm="row">
+			<md-input-container flex>
+				<label>Dimensions Z</label>
+				<input ng-model="request.dimZ" type="number" required>
+			</md-input-container>
+			</div>
+			<md-input-container flex>
+				<label>Units</label>
+				<md-select ng-model="request.units" required>
+					<md-option value="mm">mm</md-option>
+					<md-option value="cm">cm</md-option>
+					<md-option value="in">in</md-option>
+				</md-select>
+			</md-input-container>
+		</md-content>
+
+		<md-content layout-gt-sm="row" layout-padding>
+			<div>
+				<md-input-container>
+					<label>Color</label>
+					<input ng-model="request.color">
+				</md-input-container>
+				<span class="color-box" ng-style="{backgroundColor: request.color}"></span>
+				<md-button ng-click="addColor()" class="md-raised md-primary"><md-icon>add</md-icon> Add</md-button>
+
+			</div>
+
+		</md-content>
+	</form>
+
+
+
+		<!--<md-dialog-actions layout="row">-->
+			<!--<md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>-->
+				<!--More on Wikipedia-->
+			<!--</md-button>-->
+			<!--<span flex></span>-->
+			<!--<md-button ng-click="answer('not useful')">-->
+				<!--Cancel-->
+			<!--</md-button>-->
+			<!--<md-button ng-click="answer('useful')">-->
+				<!--Useful-->
+			<!--</md-button>-->
+		<!--</md-dialog-actions>-->
+	</form>
+</md-dialog>
+
+<style>
+	.color-box {
+		height: 1em;
+		width: 1em;
+		display: inline-block;
+		vertical-align: 50%;
+		box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	}
+</style>
