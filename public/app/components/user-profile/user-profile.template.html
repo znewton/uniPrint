@@ -1,0 +1,37 @@
+<div layout="row" layout-xs="column"  style="height:100vh;" ng-cloak="" >
+    <div flex="33"  >
+        <md-content>
+            <form name="userBasicForm" >
+                 <md-icon layout-align="center center" md-svg-icon="assets/ic_account_circle_black_48px.svg" class="material-icons md-block"
+                          ng-style="{height: '384px', width: '384px'}">{{ user.myIcon }}</md-icon>
+                <br>
+                 <md-input-container>
+                <input name="user.fullName" ng-model="user.fullName" disabled>
+            </md-input-container>
+        </md-content>
+        </form>
+    </div>
+    <div flex="66" layout="cloumn" class="userSettings" layout-align="center center">
+        <md-content>
+            <form name="userAdvForm">
+                <md-input-container class="md-block">
+                    <input name="user.username" ng-model="user.username" disabled>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <input name="user.address" ng-model="user.address" disabled>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <input name="user.phoneNumber" ng-model="user.phneNumber" disabled>
+                </md-input-container>
+
+            </form>
+
+        </md-content>
+    </div>
+</div>
+<style>
+    .userSettings{
+        max-width: 90%;
+        width: 500px;
+    }
+</style>

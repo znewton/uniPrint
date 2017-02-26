@@ -14,6 +14,5 @@ angular.module('modelIndex', ['modelCard']).component('modelIndex',{
 			$scope.loading = false;
 			console.log($scope.models);
 		}, 200);
-
 	}
 });

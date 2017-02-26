@@ -3,11 +3,8 @@ app.config(function($routeProvider, $mdThemingProvider) {
 		.when("/", {
 			template: "<home></home>"
 		})
-		.when("/models", {
-			template: "<model-index></model-index>"
-		})
-		.when("/requests", {
-			template: "<request-index></request-index>"
+		.when("/index", {
+			template: "<index></index>"
 		})
         .when("/login", {
             template: "<login></login>"
@@ -17,6 +14,9 @@ app.config(function($routeProvider, $mdThemingProvider) {
         })
         .when("/forgotPassword", {
             template: "<forgot-password></forgot-password>"
+        })
+        .when("/userProfile", {
+            template: "<user-profile></user-profile>"
         })
 		.otherwise({redirectTo:'/404'});
 

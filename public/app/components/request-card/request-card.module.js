@@ -7,9 +7,6 @@ angular.module('requestCard', []).component('requestCard',{
 		$scope.model = {};
 		this.init = function(modelID) {
 			$scope.model = fake_db_print_models[modelID];
-		};
-		this.openModelView = function() {
-
-		};
+		}
 	}
 });

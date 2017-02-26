@@ -1,4 +1,4 @@
-angular.module('requestIndex', ['requestCard', 'modelCard']).component('requestIndex',{
+angular.module('requestIndex', ['requestCard']).component('requestIndex',{
 	templateUrl: 'app/components/request-index/request-index.template.html',
 	controller: function RequestIndexController($scope, $timeout) {
 
