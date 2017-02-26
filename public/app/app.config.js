@@ -18,6 +18,9 @@ app.config(function($routeProvider, $mdThemingProvider) {
         .when("/forgotPassword", {
             template: "<forgot-password></forgot-password>"
         })
+		.when("/testing", {
+			template: "<testing></testing>"
+		})
 		.otherwise({redirectTo:'/404'});
 
 	$mdThemingProvider.theme('default')

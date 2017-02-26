@@ -44,7 +44,7 @@ angular.module('auth', []).service('auth',
         firebase.auth().onAuthStateChanged(init);
 
         var isLoggedIn = function() {
-            return currentUser !== null;
+            return currentUser !== null && currentUser!== undefined;
         };
 
 

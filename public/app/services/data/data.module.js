@@ -19,7 +19,6 @@ angular.module('data', ['auth']).service('data',
              *          ownerName,
              *          ownerID
              *          name,
-             *          imageURL,
              *          fileURL,
              *          fileSize
              *        }
@@ -69,10 +68,9 @@ angular.module('data', ['auth']).service('data',
             };
 
             var addUserModel = function (user, model) {
-                model.owner = user.username;
                 model.user = user.uid;
                 var modelKey = firebase.database().ref('models').push(model).key;
-                firebase.database().ref('users/' + user.uid + '/models/' +modelKey).set(model.name);
+                firebase.database().ref('users/' + user.uid + '/models/' + modelKey).set(model.name);
             };
 
             var deleteUserModel = function (user, id) {
@@ -81,7 +79,6 @@ angular.module('data', ['auth']).service('data',
             };
 
             var addUserRequest = function (user, request) {
-                request.name = user.username;
                 request.user = user.uid;
                 var reqKey = firebase.database().ref('print_requests').push(request).key;
                 firebase.database().ref('users/' + user.uid + '/print_requests/' + reqKey).set(true);
@@ -103,6 +100,7 @@ angular.module('data', ['auth']).service('data',
                 firebase.database().ref('users/' + user.uid + '/bids/' + id ).remove();
                 firebase.database().ref('bids/' + id).remove();
             };
+
 
             var getUsers = function (callback, id) {
                 if (id){

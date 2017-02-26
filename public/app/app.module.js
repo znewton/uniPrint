@@ -8,9 +8,11 @@ var app = angular.module('uniPrint', [
 	'requestIndex',
 	'auth',
 	'data',
+	'files',
     'login',
 	'signUp',
 	'appNavbar',
 	'appFooter',
-	'forgotPassword'
+	'forgotPassword',
+	'testing'
 ]);
