@@ -1,5 +1,5 @@
-<div ng-app="login" layout-align="center center" layout="column"  style="min-height: 700px">
-    <div class="loginBox md-whiteframe-z1 md-primary"   layout="column">
+<div layout-align="center center" layout="column"  style="min-height: 850px" ng-controller="loginController">
+    <div class="loginBox md-whiteframe-z1 md-primary"  layout="column">
     <md-toolbar color="primary" layout-align="center center">
         <span>Login</span>
     </md-toolbar>
@@ -8,7 +8,7 @@
         <md-content layout-padding >
             <md-input-container class="md-block">
                 <label>Email or Username</label>
-                <input required type="text" name="userEmail" ng-model="project.userEmail"/>
+                <input required type="text" name="userEmail" ng-model="login.email"/>
                 <div ng-messages="projectForm2.userEmail.$error" role="alert" multiple="">
 
                     <div ng-if="projectForm2.userEmail.$dirty">
@@ -19,10 +19,10 @@
     <md-input-container class="md-block">
         <label>Password</label>
         <input required type="password" name="loginPassword" ng-model="project.loginPassword"
-               ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
+               ng-minlength="6">
         <div ng-messages="projectForm2.loginPassword.$error">
             <div ng-if="projectForm2.loginPassword.$error.required"></div>
-            <div ng-if="projectForm2.loginPassword.$error.pattern" >Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
+            <div ng-if="projectForm2.loginPassword.$error.minlength" >Password must be at least 6 characters.</div>
         </div>
     </md-input-container>
             <md-input-container class="md-block">
