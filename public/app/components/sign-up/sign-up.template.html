@@ -1,4 +1,4 @@
-<div ng-app="signUp" layout-align="center center" layout="column"   style="min-height: 850px">
+<div layout-align="center center" layout="column"   style="min-height: 850px">
     <div class="loginBox md-whiteframe-z1 md-primary"   layout="column">
         <md-toolbar color="primary" layout-align="center center">
             <span>Sign Up</span>
@@ -32,19 +32,19 @@
                 <md-input-container class="md-block">
                     <label>Password</label>
                     <input required type="password" name="userPassword" ng-model="project.userPassword"
-                           ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
+                           ng-minlength="6">
                     <div ng-messages="projectForm.userPassword.$error">
                         <div ng-if="projectForm.userPassword.$error.required"></div>
-                        <div ng-if="projectForm.userPassword.$error.pattern" >Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
+                        <div ng-if="projectForm.userPassword.$error.minlength" >Password must be at least 6 characters.</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>Password</label>
+                    <label>Confirm Password</label>
                     <input required type="password" name="userPassword2" ng-model="project.userPassword2"
                            ng-pattern="/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/">
                     <div ng-messages="projectForm.userPassword2.$error">
                     <div ng-if="projectForm.userPassword2.$error.required"></div>
-                    <div ng-if="projectForm.userPassword2.$error.pattern" >Requires 8 characters, 1 number, 1 character, and 1 special character.</div>
+                    <div ng-if="projectForm.userPassword2.$error.pattern" >Password must be at least 6 characters.</div>
                     </div>
                 </md-input-container>
                     <md-input-container class="md-block">

@@ -11,5 +11,6 @@ var app = angular.module('uniPrint', [
 	'signUp',
 	'appNavbar',
 	'appFooter',
-	'forgotPassword'
+	'forgotPassword',
+	'userProfile'
 ]);
